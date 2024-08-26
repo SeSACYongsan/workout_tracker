@@ -4,7 +4,11 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
-        body: Center(),
+        body: Center(
+          child: SafeArea(
+            child: Center(),
+          ),
+        ),
       ),
     ),
   );
