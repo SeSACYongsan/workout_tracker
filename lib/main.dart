@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-        body: Center(),
+        body: Center(
+          child: Container(),
+        ),
       ),
     ),
   );
