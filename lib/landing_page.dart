@@ -4,11 +4,10 @@ class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.yellow,
       body: Center(
-        child: Text(
-          "Hello World",
-        ),
+        child: Image.asset("assets/images/runner.png"),
       ),
     );
   }
