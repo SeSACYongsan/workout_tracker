@@ -87,9 +87,9 @@ flutter:
     fonts:
         - family: Jua
           fonts:
-              - asset: assets/fonts/Jua.ttf
+              - asset: assets/fonts/Jua/Jua.ttf
         - family: NanumBrushScript
           fonts:
-              - asset: assets/fonts/NanumBrushScript.ttf
+              - asset: assets/fonts/NanumBrushScript/NanumBrushScript.ttf
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages

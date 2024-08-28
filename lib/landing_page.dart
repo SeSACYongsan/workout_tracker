@@ -68,11 +68,11 @@ class LandingPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
