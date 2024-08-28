@@ -84,6 +84,12 @@ flutter:
     #       - asset: fonts/TrajanPro.ttf
     #       - asset: fonts/TrajanPro_Bold.ttf
     #         weight: 700
-    #
+    fonts:
+        - family: Jua
+          fonts:
+              - asset: assets/fonts/Jua.ttf
+        - family: NanumBrushScript
+          fonts:
+              - asset: assets/fonts/NanumBrushScript.ttf
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages
