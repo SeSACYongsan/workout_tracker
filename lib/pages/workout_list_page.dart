@@ -11,15 +11,12 @@ class WorkoutListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Workout List"),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              for (final workoutItem in workouts.indexed)
-                WorkoutItem(index: workoutItem.$1 + 1, workout: workoutItem.$2),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: ListView.builder(
+          itemBuilder: (context, index) =>
+              WorkoutItem(index: index + 1, workout: workouts[index]),
+          itemCount: workouts.length,
         ),
       ),
     );

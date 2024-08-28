@@ -7,22 +7,23 @@ class WorkoutItem extends StatelessWidget {
   const WorkoutItem({super.key, required this.index, required this.workout});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset("assets/images/${workout.name}.jpeg", width: 70),
-        Expanded(
-          child: Text(
-            "$index. ${workout.koreanName}",
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        leading: Image.asset(
+          "assets/images/${workout.name}.jpeg",
         ),
-        Text(
+        title: Text(
+          "$index. ${workout.koreanName}",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        trailing: Text(
           "${workout.duration.toString()}:00",
-          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Colors.blue,
               ),
         ),
-      ],
+      ),
     );
   }
 }
