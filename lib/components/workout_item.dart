@@ -10,8 +10,15 @@ class WorkoutItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
-        leading: Image.asset(
-          "assets/images/${workout.name}.jpeg",
+        leading: Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage("assets/images/${workout.name}.jpeg"),
+            ),
+          ),
         ),
         title: Text(
           "$index. ${workout.koreanName}",

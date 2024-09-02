@@ -38,7 +38,7 @@ class WorkoutGuidePage extends StatelessWidget {
                       Icons.chevron_right,
                       size: 50,
                     ),
-                  )
+                  ),
                 ],
               ),
               const Spacer(),
@@ -57,7 +57,7 @@ class WorkoutGuidePage extends StatelessWidget {
                   size: 50,
                   color: Colors.red,
                 ),
-              )
+              ),
             ],
           ),
         ),

@@ -3,7 +3,7 @@ import 'package:workout_tracker/pages/workout_guide_page.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: WorkoutGuidePage(),
     ),
   );
