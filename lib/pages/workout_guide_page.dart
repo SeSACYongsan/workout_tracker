@@ -87,6 +87,7 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
     } else {
       return IconButton(
         onPressed: () async {
+          await audioPlayer.setPlaybackRate(3);
           await audioPlayer.play(AssetSource("audio/squat.mp3"));
           setState(() {});
         },
