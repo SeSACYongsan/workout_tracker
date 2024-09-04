@@ -14,8 +14,10 @@ class WorkoutListPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: ListView.builder(
-          itemBuilder: (context, index) =>
-              WorkoutItem(index: index + 1, workout: workouts[index]),
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () {},
+            child: WorkoutItem(index: index + 1, workout: workouts[index]),
+          ),
           itemCount: workouts.length,
         ),
       ),
