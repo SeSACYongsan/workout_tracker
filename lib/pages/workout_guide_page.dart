@@ -1,7 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutGuidePage extends StatelessWidget {
-  const WorkoutGuidePage({super.key});
+  final audioPlayer = AudioPlayer();
+  WorkoutGuidePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +53,9 @@ class WorkoutGuidePage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  audioPlayer.play(AssetSource("audio/squat.mp3"));
+                },
                 icon: const Icon(
                   Icons.play_circle_fill,
                   size: 50,
