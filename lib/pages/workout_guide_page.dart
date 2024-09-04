@@ -1,9 +1,14 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-class WorkoutGuidePage extends StatelessWidget {
+class WorkoutGuidePage extends StatefulWidget {
+  const WorkoutGuidePage({super.key});
+  @override
+  State<WorkoutGuidePage> createState() => _WorkoutGuidePageState();
+}
+
+class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
   final audioPlayer = AudioPlayer();
-  WorkoutGuidePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,20 +57,53 @@ class WorkoutGuidePage extends StatelessWidget {
                     ),
               ),
               const SizedBox(height: 30),
-              IconButton(
-                onPressed: () {
-                  audioPlayer.play(AssetSource("audio/squat.mp3"));
-                },
-                icon: const Icon(
-                  Icons.play_circle_fill,
-                  size: 50,
-                  color: Colors.red,
-                ),
-              ),
+              getIconButton()
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  IconButton getIconButton() {
+    if (audioPlayer.state == PlayerState.playing) {
+      return IconButton(
+        onPressed: () async {
+          await audioPlayer.stop();
+          setState(() {});
+        },
+        icon: const Icon(
+          Icons.stop_circle,
+          size: 50,
+          color: Colors.red,
+        ),
+      );
+    } else {
+      return IconButton(
+        onPressed: () async {
+          await audioPlayer.play(AssetSource("audio/squat.mp3"));
+          setState(() {});
+        },
+        icon: const Icon(
+          Icons.play_circle_fill,
+          size: 50,
+          color: Colors.red,
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    audioPlayer.onPlayerComplete.listen((event) {
+      setState(() {});
+    });
+    super.initState();
   }
 }
