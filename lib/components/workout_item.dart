@@ -21,11 +21,11 @@ class WorkoutItem extends StatelessWidget {
           ),
         ),
         title: Text(
-          "$index. ${workout.koreanName}",
+          "$index. ${workout.name}",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         trailing: Text(
-          "${workout.duration.toString()}:00",
+          "${workout.minutes.toString()}:00",
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Colors.blue,
               ),

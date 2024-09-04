@@ -1,7 +1,13 @@
 class Workout {
   final String name;
-  final String koreanName;
-  final int duration;
+  final int minutes;
+  final String imageName;
+  final String audioName;
+  final int kcal;
   Workout(
-      {required this.name, required this.koreanName, required this.duration});
+      {required this.name,
+      required this.minutes,
+      required this.imageName,
+      required this.audioName,
+      required this.kcal});
 }
