@@ -42,6 +42,13 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                 children: [
                   Expanded(
                     child: DashboardCard(
+                      info: Text(
+                        "12회",
+                        style: TextStyle(
+                          fontSize: 33,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       icon: Icon(
                         Icons.fitness_center,
                         size: 33,
@@ -61,6 +68,13 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                       children: [
                         Expanded(
                           child: DashboardCard(
+                            info: Text(
+                              "10분",
+                              style: TextStyle(
+                                fontSize: 33,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                             icon: Icon(
                               Icons.update,
                               size: 33,
@@ -77,6 +91,13 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                         ),
                         Expanded(
                           child: DashboardCard(
+                            info: Text(
+                              "100kcal",
+                              style: TextStyle(
+                                fontSize: 33,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                             icon: Icon(
                               Icons.fitness_center,
                               size: 33,
@@ -106,6 +127,14 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                     SizedBox(
                       width: 250,
                       child: DashboardCard(
+                        info: Text(
+                          "아침을 여는 5가지 운동 프로그램",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                         icon: Icon(
                           Icons.run_circle_outlined,
                           size: 33,
@@ -124,6 +153,14 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                     SizedBox(
                       width: 250,
                       child: DashboardCard(
+                        info: Text(
+                          "근력을 키우는 7가지 프로그램",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                         icon: Icon(
                           Icons.rowing_outlined,
                           size: 33,
@@ -146,6 +183,13 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
             const Expanded(
               flex: 3,
               child: DashboardCard(
+                info: Text(
+                  "당신의 몸은 해낼 수 있다. 당신의 마음만 설득하면 된다.",
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.white,
+                  ),
+                ),
                 icon: Icon(
                   Icons.list,
                   size: 33,

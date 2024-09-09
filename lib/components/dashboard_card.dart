@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class DashboardCard extends StatelessWidget {
   final Icon icon;
   final Text title;
+  final Text info;
   const DashboardCard({
     super.key,
     required this.icon,
     required this.title,
+    required this.info,
   });
   @override
   Widget build(BuildContext context) {
@@ -26,15 +28,9 @@ class DashboardCard extends StatelessWidget {
               title,
             ],
           ),
-          const Expanded(
+          Expanded(
             child: Center(
-              child: Text(
-                "12회",
-                style: TextStyle(
-                  fontSize: 33,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              child: info,
             ),
           ),
         ],
