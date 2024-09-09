@@ -41,16 +41,55 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: DashboardCard(),
+                    child: DashboardCard(
+                      icon: Icon(
+                        Icons.fitness_center,
+                        size: 33,
+                        color: Colors.orange,
+                      ),
+                      title: Text(
+                        "Monthly",
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Column(
                       children: [
                         Expanded(
-                          child: DashboardCard(),
+                          child: DashboardCard(
+                            icon: Icon(
+                              Icons.update,
+                              size: 33,
+                              color: Colors.orange,
+                            ),
+                            title: Text(
+                              "오늘 운동 시간",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         ),
                         Expanded(
-                          child: DashboardCard(),
+                          child: DashboardCard(
+                            icon: Icon(
+                              Icons.fitness_center,
+                              size: 33,
+                              color: Colors.orange,
+                            ),
+                            title: Text(
+                              "소모 칼로리",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -66,11 +105,39 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                   children: [
                     SizedBox(
                       width: 250,
-                      child: DashboardCard(),
+                      child: DashboardCard(
+                        icon: Icon(
+                          Icons.run_circle_outlined,
+                          size: 33,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          "그룹1",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 250,
-                      child: DashboardCard(),
+                      child: DashboardCard(
+                        icon: Icon(
+                          Icons.rowing_outlined,
+                          size: 33,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          "그룹2",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -78,7 +145,21 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
             ),
             const Expanded(
               flex: 3,
-              child: DashboardCard(),
+              child: DashboardCard(
+                icon: Icon(
+                  Icons.list,
+                  size: 33,
+                  color: Colors.orange,
+                ),
+                title: Text(
+                  "운동 이어서 하기",
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

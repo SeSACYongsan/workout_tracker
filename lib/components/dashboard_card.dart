@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DashboardCard extends StatelessWidget {
+  final Icon icon;
+  final Text title;
   const DashboardCard({
     super.key,
+    required this.icon,
+    required this.title,
   });
   @override
   Widget build(BuildContext context) {
@@ -13,26 +17,16 @@ class DashboardCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: Colors.grey.shade300,
       ),
-      child: const Column(
+      child: Column(
         children: [
           Row(
             children: [
-              Icon(
-                Icons.fitness_center,
-                size: 33,
-                color: Colors.orange,
-              ),
-              SizedBox(width: 10),
-              Text(
-                "Monthly",
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              icon,
+              const SizedBox(width: 10),
+              title,
             ],
           ),
-          Expanded(
+          const Expanded(
             child: Center(
               child: Text(
                 "12회",
