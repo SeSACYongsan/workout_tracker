@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:workout_tracker/pages/workout_home_page.dart';
+import 'package:workout_tracker/my_router.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    const MaterialApp(
-      home: WorkoutHomePage(),
+    MaterialApp.router(
+      routerConfig: router,
+      title: "Workout Tracker",
     ),
   );
 }
