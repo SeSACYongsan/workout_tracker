@@ -5,12 +5,14 @@ class DashboardCard extends StatelessWidget {
   final Text title;
   final Text info;
   final Color? backgroundColor;
+  final String? imageName;
   const DashboardCard({
     super.key,
     required this.icon,
     required this.title,
     required this.info,
     this.backgroundColor,
+    this.imageName,
   });
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,15 @@ class DashboardCard extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: Center(
-              child: info,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: info,
+                  ),
+                ),
+                if (imageName != null) Image.asset("assets/images/$imageName"),
+              ],
             ),
           ),
         ],

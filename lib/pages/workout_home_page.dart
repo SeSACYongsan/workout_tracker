@@ -14,33 +14,52 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                const Expanded(
-                  child: Column(
-                    children: [
-                      Text("Just do it"),
-                      Text("간단하다. 흔들리면 그것은 지방이다."),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/me.jpg"),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Just do it",
+                          style: TextStyle(
+                            fontSize: 32,
+                          ),
+                        ),
+                        Text(
+                          "간단하다. 흔들리면 그것은 지방이다.",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ],
+                  Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 3,
+                        color: Colors.orange,
+                      ),
+                      shape: BoxShape.circle,
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/me.jpg"),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             const Expanded(
               flex: 6,
               child: Row(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: DashboardCard(
                       info: Text(
                         "12회",
@@ -64,6 +83,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                     ),
                   ),
                   Expanded(
+                    flex: 3,
                     child: Column(
                       children: [
                         Expanded(
@@ -126,27 +146,30 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                   children: [
                     SizedBox(
                       width: 250,
-                      child: DashboardCard(
-                        backgroundColor: Colors.orange,
-                        info: Text(
-                          "아침을 여는 5가지 운동 프로그램",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
+                      child: Expanded(
+                        child: DashboardCard(
+                          imageName: "sample1.png",
+                          backgroundColor: Colors.orange,
+                          info: Text(
+                            "아침을 여는 5가지 운동 프로그램",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          icon: Icon(
+                            Icons.run_circle_outlined,
+                            size: 33,
                             color: Colors.white,
                           ),
-                        ),
-                        icon: Icon(
-                          Icons.run_circle_outlined,
-                          size: 33,
-                          color: Colors.white,
-                        ),
-                        title: Text(
-                          "그룹1",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          title: Text(
+                            "그룹1",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
@@ -154,6 +177,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                     SizedBox(
                       width: 250,
                       child: DashboardCard(
+                        imageName: "sample2.png",
                         backgroundColor: Colors.teal,
                         info: Text(
                           "근력을 키우는 7가지 프로그램",
