@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/components/dashboard_card.dart';
 
 class WorkoutHomePage extends StatefulWidget {
@@ -138,7 +139,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 4,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -146,33 +147,38 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                   children: [
                     SizedBox(
                       width: 250,
-                      child: DashboardCard(
-                        imageName: "sample1.png",
-                        backgroundColor: Colors.orange,
-                        info: Text(
-                          "아침을 여는 5가지 운동 프로그램",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
+                      child: GestureDetector(
+                        onTap: () {
+                          context.go("/workout_home/workout_list");
+                        },
+                        child: const DashboardCard(
+                          imageName: "sample1.png",
+                          backgroundColor: Colors.orange,
+                          info: Text(
+                            "아침을 여는 5가지 운동 프로그램",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          icon: Icon(
+                            Icons.run_circle_outlined,
+                            size: 33,
                             color: Colors.white,
                           ),
-                        ),
-                        icon: Icon(
-                          Icons.run_circle_outlined,
-                          size: 33,
-                          color: Colors.white,
-                        ),
-                        title: Text(
-                          "그룹1",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          title: Text(
+                            "그룹1",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 250,
                       child: DashboardCard(
                         imageName: "sample2.png",

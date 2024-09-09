@@ -16,7 +16,7 @@ class WorkoutItem extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-              image: AssetImage("assets/images/${workout.name}.jpeg"),
+              image: AssetImage("assets/images/${workout.imageName}"),
             ),
           ),
         ),

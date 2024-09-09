@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/pages/landing_page.dart';
 import 'package:workout_tracker/pages/workout_home_page.dart';
+import 'package:workout_tracker/pages/workout_list_page.dart';
 
 final router = GoRouter(
   routes: [
@@ -11,6 +12,12 @@ final router = GoRouter(
     GoRoute(
       path: "/workout_home",
       builder: (context, state) => const WorkoutHomePage(),
+      routes: [
+        GoRoute(
+          path: "workout_list",
+          builder: (context, state) => const WorkoutListPage(),
+        ),
+      ],
     ),
   ],
 );
