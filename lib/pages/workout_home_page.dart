@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
 
+class DashboardCard extends StatelessWidget {
+  const DashboardCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.grey.shade300,
+      ),
+    );
+  }
+}
+
 class WorkoutHomePage extends StatefulWidget {
   const WorkoutHomePage({super.key});
   @override
@@ -35,36 +52,21 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                 ),
               ],
             ),
-            Expanded(
+            const Expanded(
               flex: 6,
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey.shade300,
-                      ),
-                    ),
+                    child: DashboardCard(),
                   ),
                   Expanded(
                     child: Column(
                       children: [
                         Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
+                          child: DashboardCard(),
                         ),
                         Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
+                          child: DashboardCard(),
                         ),
                       ],
                     ),
@@ -74,13 +76,25 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
             ),
             const Expanded(
               flex: 4,
-              child: Row(
-                children: [],
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 250,
+                      child: DashboardCard(),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: DashboardCard(),
+                    ),
+                  ],
+                ),
               ),
             ),
-            Expanded(
+            const Expanded(
               flex: 3,
-              child: Container(),
+              child: DashboardCard(),
             ),
           ],
         ),
