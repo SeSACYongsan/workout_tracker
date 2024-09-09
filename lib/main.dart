@@ -4,7 +4,7 @@ import 'package:workout_tracker/pages/workout_guide_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: WorkoutGuidePage(),
     ),
   );
