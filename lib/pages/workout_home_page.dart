@@ -134,7 +134,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -146,30 +146,28 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                   children: [
                     SizedBox(
                       width: 250,
-                      child: Expanded(
-                        child: DashboardCard(
-                          imageName: "sample1.png",
-                          backgroundColor: Colors.orange,
-                          info: Text(
-                            "아침을 여는 5가지 운동 프로그램",
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          icon: Icon(
-                            Icons.run_circle_outlined,
-                            size: 33,
+                      child: DashboardCard(
+                        imageName: "sample1.png",
+                        backgroundColor: Colors.orange,
+                        info: Text(
+                          "아침을 여는 5가지 운동 프로그램",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
-                          title: Text(
-                            "그룹1",
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                        ),
+                        icon: Icon(
+                          Icons.run_circle_outlined,
+                          size: 33,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          "그룹1",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
                       ),
