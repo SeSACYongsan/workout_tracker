@@ -1,6 +1,31 @@
 import 'package:workout_tracker/models/workout.dart';
+import 'package:workout_tracker/models/workout_group.dart';
 
 class WorkoutManager {
+  static final List<WorkoutGroup> workoutGroups = [
+    WorkoutGroup(
+      groupDescription: "아침을 여는 5가지 운동 프로그램",
+      workouts: [
+        workouts[0],
+        workouts[1],
+        workouts[3],
+        workouts[4],
+        workouts[5],
+      ],
+    ),
+    WorkoutGroup(
+      groupDescription: "근력을 키우는 7가지 운동 프로그램",
+      workouts: [
+        workouts[0],
+        workouts[2],
+        workouts[3],
+        workouts[4],
+        workouts[5],
+        workouts[7],
+        workouts[8],
+      ],
+    )
+  ];
   static final List<Workout> workouts = [
     Workout(
         name: '스쿼트',

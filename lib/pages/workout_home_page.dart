@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/components/dashboard_card.dart';
+import 'package:workout_tracker/models/workout_manager.dart';
 
 class WorkoutHomePage extends StatefulWidget {
   const WorkoutHomePage({super.key});
@@ -153,9 +154,9 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                         },
                         imageName: "sample1.png",
                         backgroundColor: Colors.orange,
-                        info: const Text(
-                          "아침을 여는 5가지 운동 프로그램",
-                          style: TextStyle(
+                        info: Text(
+                          WorkoutManager.workoutGroups[0].groupDescription,
+                          style: const TextStyle(
                             fontSize: 23,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -184,9 +185,9 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                         },
                         imageName: "sample2.png",
                         backgroundColor: Colors.teal,
-                        info: const Text(
-                          "근력을 키우는 7가지 프로그램",
-                          style: TextStyle(
+                        info: Text(
+                          WorkoutManager.workoutGroups[1].groupDescription,
+                          style: const TextStyle(
                             fontSize: 23,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
