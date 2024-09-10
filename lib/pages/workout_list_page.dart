@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/components/workout_item.dart';
-import 'package:workout_tracker/models/workouts.dart';
+import 'package:workout_tracker/models/workout.dart';
+import 'package:workout_tracker/workout_manager.dart';
 
 class WorkoutListPage extends StatelessWidget {
-  const WorkoutListPage({super.key});
+  final List<Workout> workouts = WorkoutManager.workouts;
+  WorkoutListPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -16,7 +16,7 @@ final router = GoRouter(
       routes: [
         GoRoute(
           path: "workout_list",
-          builder: (context, state) => const WorkoutListPage(),
+          builder: (context, state) => WorkoutListPage(),
           routes: [
             GoRoute(
               path: "workout_guide/:workouts_index",
