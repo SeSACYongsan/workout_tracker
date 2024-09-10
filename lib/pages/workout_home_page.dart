@@ -150,7 +150,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                       width: 250,
                       child: DashboardCard(
                         customOnTap: () {
-                          context.go("/workout_home/workout_list");
+                          context.go("/workout_home/workout_list/0");
                         },
                         imageName: "sample1.png",
                         backgroundColor: Colors.orange,
@@ -181,7 +181,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                       width: 250,
                       child: DashboardCard(
                         customOnTap: () {
-                          context.go("/workout_home/workout_list");
+                          context.go("/workout_home/workout_list/1");
                         },
                         imageName: "sample2.png",
                         backgroundColor: Colors.teal,

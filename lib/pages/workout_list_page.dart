@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/components/workout_item.dart';
 import 'package:workout_tracker/models/workout.dart';
-import 'package:workout_tracker/workout_manager.dart';
+import 'package:workout_tracker/models/workout_manager.dart';
 
 class WorkoutListPage extends StatelessWidget {
-  final List<Workout> workouts = WorkoutManager.workouts;
-  WorkoutListPage({super.key});
+  final int groupIndex;
+  const WorkoutListPage({super.key, required this.groupIndex});
   @override
   Widget build(BuildContext context) {
+    final List<Workout> workouts =
+        WorkoutManager.workoutGroups[groupIndex].workouts;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -19,7 +21,8 @@ class WorkoutListPage extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (context, index) => GestureDetector(
             onTap: () {
-              context.go("/workout_home/workout_list/workout_guide/$index");
+              context.go(
+                  "/workout_home/workout_list/$groupIndex/workout_guide/$index");
             },
             child: WorkoutItem(index: index + 1, workout: workouts[index]),
           ),

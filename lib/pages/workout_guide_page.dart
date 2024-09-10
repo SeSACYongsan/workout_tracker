@@ -1,13 +1,15 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker/models/workout.dart';
-import 'package:workout_tracker/workout_manager.dart';
+import 'package:workout_tracker/models/workout_manager.dart';
 
 class WorkoutGuidePage extends StatefulWidget {
   final int workoutsIndex;
+  final int groupIndex;
   const WorkoutGuidePage({
     super.key,
     required this.workoutsIndex,
+    required this.groupIndex,
   });
   @override
   State<WorkoutGuidePage> createState() => _WorkoutGuidePageState();
@@ -15,8 +17,7 @@ class WorkoutGuidePage extends StatefulWidget {
 
 class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
   late Workout currentWorkout;
-  final List<Workout> workouts = WorkoutManager.workouts;
-
+  late List<Workout> workouts;
   final audioPlayer = AudioPlayer();
   int workoutsIndex = 0;
   @override
@@ -124,6 +125,7 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
 
   @override
   void initState() {
+    workouts = WorkoutManager.workoutGroups[widget.groupIndex].workouts;
     workoutsIndex = widget.workoutsIndex;
     currentWorkout = workouts[workoutsIndex];
     audioPlayer.onPlayerComplete.listen((event) {
