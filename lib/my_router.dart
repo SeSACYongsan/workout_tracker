@@ -19,8 +19,15 @@ final router = GoRouter(
           builder: (context, state) => const WorkoutListPage(),
           routes: [
             GoRoute(
-              path: "workout_guide",
-              builder: (context, state) => const WorkoutGuidePage(),
+              path: "workout_guide/:workouts_index",
+              builder: (context, state) {
+                final workoutsIndexString =
+                    state.pathParameters["workouts_index"];
+                final workoutsIndex = int.parse(workoutsIndexString!);
+                return WorkoutGuidePage(
+                  workoutsIndex: workoutsIndex,
+                );
+              },
             ),
           ],
         ),

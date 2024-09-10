@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker/models/workout.dart';
 
 class WorkoutGuidePage extends StatefulWidget {
-  const WorkoutGuidePage({super.key});
+  final int workoutsIndex;
+  const WorkoutGuidePage({
+    super.key,
+    required this.workoutsIndex,
+  });
   @override
   State<WorkoutGuidePage> createState() => _WorkoutGuidePageState();
 }
 
 class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
   late Workout currentWorkout;
+
   List<Workout> workouts = [
     Workout(
         name: '스쿼트',
@@ -173,6 +178,7 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
 
   @override
   void initState() {
+    workoutsIndex = widget.workoutsIndex;
     currentWorkout = workouts[workoutsIndex];
     audioPlayer.onPlayerComplete.listen((event) {
       setState(() {});

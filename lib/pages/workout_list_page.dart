@@ -17,7 +17,7 @@ class WorkoutListPage extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (context, index) => GestureDetector(
             onTap: () {
-              context.go("/workout_home/workout_list/workout_guide");
+              context.go("/workout_home/workout_list/workout_guide/$index");
             },
             child: WorkoutItem(index: index + 1, workout: workouts[index]),
           ),
