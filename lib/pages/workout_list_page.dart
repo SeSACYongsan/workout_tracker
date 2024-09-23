@@ -6,7 +6,9 @@ import 'package:workout_tracker/models/workout_manager.dart';
 
 class WorkoutListPage extends StatelessWidget {
   final int groupIndex;
-  const WorkoutListPage({super.key, required this.groupIndex});
+  WorkoutListPage({super.key, required this.groupIndex}) {
+    WorkoutManager.currentWorkoutGroupIndex = groupIndex;
+  }
   @override
   Widget build(BuildContext context) {
     final List<Workout> workouts =

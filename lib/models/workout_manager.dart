@@ -2,6 +2,7 @@ import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/models/workout_group.dart';
 
 class WorkoutManager {
+  static int? currentWorkoutGroupIndex;
   static final List<WorkoutGroup> workoutGroups = [
     WorkoutGroup(
       groupDescription: "아침을 여는 5가지 운동 프로그램",
@@ -24,7 +25,7 @@ class WorkoutManager {
         workouts[7],
         workouts[8],
       ],
-    )
+    ),
   ];
   static final List<Workout> workouts = [
     Workout(

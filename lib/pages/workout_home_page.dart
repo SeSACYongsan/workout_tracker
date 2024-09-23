@@ -216,7 +216,11 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
               flex: 3,
               child: DashboardCard(
                 customOnTap: () {
-                  context.go("/workout_home/workout_list");
+                  if (WorkoutManager.currentWorkoutGroupIndex == null) {
+                    return;
+                  }
+                  context.go(
+                      "/workout_home/workout_list/${WorkoutManager.currentWorkoutGroupIndex}");
                 },
                 backgroundColor: Colors.black87,
                 info: const Text(
