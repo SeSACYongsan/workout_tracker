@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/models/workout_group.dart';
 
@@ -83,4 +84,15 @@ class WorkoutManager {
         audioName: 'benchpress.mp3',
         kcal: 250),
   ];
+  static Future<int> getMonthlyWorkoutCount() async {
+    final asyncPreferences = SharedPreferencesAsync();
+    final monthlyCount = await asyncPreferences.getInt("monthlyCount") ?? 0;
+    return monthlyCount;
+  }
+
+  static void increaseMonthlyWorkoutCount() async {
+    final asyncPreferences = SharedPreferencesAsync();
+    int workoutCount = await getMonthlyWorkoutCount();
+    await asyncPreferences.setInt("monthlyCount", ++workoutCount);
+  }
 }
