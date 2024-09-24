@@ -11,6 +11,8 @@ class WorkoutHomePage extends StatefulWidget {
 
 class _WorkoutHomePageState extends State<WorkoutHomePage> {
   late Future<int> monthlyCountFuture;
+  late Future<int> workoutMinutesFuture;
+  late Future<int> workoutKcalFuture;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,25 +100,37 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                       ),
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     flex: 3,
                     child: Column(
                       children: [
                         Expanded(
                           child: DashboardCard(
-                            info: Text(
-                              "10분",
-                              style: TextStyle(
-                                fontSize: 33,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            info: FutureBuilder(
+                              future: workoutMinutesFuture,
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text("Error: ${snapshot.error}");
+                                } else {
+                                  return Text(
+                                    "${snapshot.data}분",
+                                    style: const TextStyle(
+                                      fontSize: 33,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.update,
                               size: 33,
                               color: Colors.orange,
                             ),
-                            title: Text(
+                            title: const Text(
                               "오늘 운동 시간",
                               style: TextStyle(
                                 fontSize: 18,
@@ -127,19 +141,31 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                         ),
                         Expanded(
                           child: DashboardCard(
-                            info: Text(
-                              "100kcal",
-                              style: TextStyle(
-                                fontSize: 33,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            info: FutureBuilder(
+                              future: workoutKcalFuture,
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text("Error: ${snapshot.error}");
+                                } else {
+                                  return Text(
+                                    "${snapshot.data}kcal",
+                                    style: const TextStyle(
+                                      fontSize: 33,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.fitness_center,
                               size: 33,
                               color: Colors.orange,
                             ),
-                            title: Text(
+                            title: const Text(
                               "소모 칼로리",
                               style: TextStyle(
                                 fontSize: 20,
@@ -269,11 +295,15 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
   void didUpdateWidget(covariant WorkoutHomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
     monthlyCountFuture = WorkoutManager.getMonthlyWorkoutCount();
+    workoutMinutesFuture = WorkoutManager.getTodayWorkoutMinutes();
+    workoutKcalFuture = WorkoutManager.getTodayWorkoutCalories();
   }
 
   @override
   void initState() {
     super.initState();
     monthlyCountFuture = WorkoutManager.getMonthlyWorkoutCount();
+    workoutMinutesFuture = WorkoutManager.getTodayWorkoutMinutes();
+    workoutKcalFuture = WorkoutManager.getTodayWorkoutCalories();
   }
 }

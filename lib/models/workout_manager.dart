@@ -90,9 +90,33 @@ class WorkoutManager {
     return monthlyCount;
   }
 
+  static Future<int> getTodayWorkoutCalories() async {
+    final asyncPreferences = SharedPreferencesAsync();
+    final todayCalories = await asyncPreferences.getInt("todayCalories") ?? 0;
+    return todayCalories;
+  }
+
+  static Future<int> getTodayWorkoutMinutes() async {
+    final asyncPreferences = SharedPreferencesAsync();
+    final todayMinutes = await asyncPreferences.getInt("todayMinutes") ?? 0;
+    return todayMinutes;
+  }
+
   static void increaseMonthlyWorkoutCount() async {
     final asyncPreferences = SharedPreferencesAsync();
     int workoutCount = await getMonthlyWorkoutCount();
     await asyncPreferences.setInt("monthlyCount", ++workoutCount);
+  }
+
+  static void increaseTodayWorkoutCalories(int calories) async {
+    final asyncPreferences = SharedPreferencesAsync();
+    final todayCalories = await getTodayWorkoutCalories();
+    await asyncPreferences.setInt("todayCalories", todayCalories + calories);
+  }
+
+  static void increaseTodayWorkoutMinutes(int minute) async {
+    final asyncPreferences = SharedPreferencesAsync();
+    final todayMinutes = await getTodayWorkoutMinutes();
+    await asyncPreferences.setInt("todayMinutes", todayMinutes + minute);
   }
 }

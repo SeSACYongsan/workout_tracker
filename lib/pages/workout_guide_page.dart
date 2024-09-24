@@ -20,6 +20,7 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
   late List<Workout> workouts;
   final audioPlayer = AudioPlayer();
   int workoutsIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,6 +132,8 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
     audioPlayer.onPlayerComplete.listen((event) {
       setState(() {});
     });
+    WorkoutManager.increaseTodayWorkoutMinutes(currentWorkout.minutes);
+    WorkoutManager.increaseTodayWorkoutCalories(currentWorkout.kcal);
     super.initState();
   }
 
