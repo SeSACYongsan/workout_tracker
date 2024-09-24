@@ -74,7 +74,13 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                             return Text("Error: ${snapshot.error}");
                           } else {
                             final monthlyWorkoutCount = snapshot.data ?? 0;
-                            return Text("$monthlyWorkoutCount회");
+                            return Text(
+                              "$monthlyWorkoutCount회",
+                              style: const TextStyle(
+                                fontSize: 33,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            );
                           }
                         },
                       ),
