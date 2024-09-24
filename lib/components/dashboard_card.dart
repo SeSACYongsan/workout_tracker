@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DashboardCard extends StatelessWidget {
   final Icon icon;
   final Text title;
-  final Text info;
+  final Widget info;
   final Color? backgroundColor;
   final String? imageName;
   final void Function()? customOnTap;

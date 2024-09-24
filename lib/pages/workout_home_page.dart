@@ -10,6 +10,7 @@ class WorkoutHomePage extends StatefulWidget {
 }
 
 class _WorkoutHomePageState extends State<WorkoutHomePage> {
+  late Future<int> monthlyCountFuture;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,26 +57,33 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 6,
               child: Row(
                 children: [
                   Expanded(
                     flex: 2,
                     child: DashboardCard(
-                      info: Text(
-                        "12회",
-                        style: TextStyle(
-                          fontSize: 33,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      info: FutureBuilder<int>(
+                        future: monthlyCountFuture,
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const CircularProgressIndicator();
+                          } else if (snapshot.hasError) {
+                            return Text("Error: ${snapshot.error}");
+                          } else {
+                            final monthlyWorkoutCount = snapshot.data ?? 0;
+                            return Text("$monthlyWorkoutCount회");
+                          }
+                        },
                       ),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.fitness_center,
                         size: 33,
                         color: Colors.orange,
                       ),
-                      title: Text(
+                      title: const Text(
                         "Monthly",
                         style: TextStyle(
                           fontSize: 23,
@@ -84,7 +92,7 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                       ),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     flex: 3,
                     child: Column(
                       children: [
@@ -249,5 +257,17 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
         ),
       ),
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant WorkoutHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    monthlyCountFuture = WorkoutManager.getMonthlyWorkoutCount();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    monthlyCountFuture = WorkoutManager.getMonthlyWorkoutCount();
   }
 }
