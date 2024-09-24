@@ -18,6 +18,12 @@ class WorkoutListPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Workout List"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            context.go("/workout_home");
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
