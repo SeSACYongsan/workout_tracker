@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/pages/frame_page.dart';
-import 'package:workout_tracker/pages/landing_page.dart';
 import 'package:workout_tracker/pages/login_page.dart';
 import 'package:workout_tracker/pages/settings_page.dart';
 import 'package:workout_tracker/pages/workout_guide_page.dart';
 import 'package:workout_tracker/pages/workout_home_page.dart';
 import 'package:workout_tracker/pages/workout_list_page.dart';
+import 'package:workout_tracker/widgets/animation_practice_widget.dart';
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const LandingPage(),
+      builder: (context, state) => const AnimationPracticeWidget(),
     ),
     StatefulShellRoute.indexedStack(
       parentNavigatorKey: _rootNavigatorKey,
