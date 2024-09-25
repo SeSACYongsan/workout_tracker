@@ -16,14 +16,23 @@ class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
   late AnimationController animationController;
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: animation.value * 0.0174533,
-      child: Icon(
-        widget.icon,
-        size: widget.size,
-        color: widget.color,
+    return AnimatedBuilder(
+      animation: animationController,
+      builder: (context, child) => Transform.rotate(
+        angle: animation.value * 0.0174533,
+        child: Icon(
+          widget.icon,
+          size: widget.size,
+          color: widget.color,
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,7 +56,6 @@ class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
       } else if (animation.status == AnimationStatus.dismissed) {
         animationController.forward();
       }
-      setState(() {});
     });
     animationController.forward();
   }
