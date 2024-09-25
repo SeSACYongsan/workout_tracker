@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_tracker/components/dashboard_card.dart';
 import 'package:workout_tracker/models/workout_manager.dart';
+import 'package:workout_tracker/widgets/animated_icon_widget.dart';
 
 class WorkoutHomePage extends StatefulWidget {
   const WorkoutHomePage({super.key});
@@ -86,8 +87,8 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                           }
                         },
                       ),
-                      icon: const Icon(
-                        Icons.fitness_center,
+                      icon: const AnimatedIconWidget(
+                        icon: Icons.fitness_center,
                         size: 33,
                         color: Colors.orange,
                       ),
@@ -125,8 +126,8 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                                 }
                               },
                             ),
-                            icon: const Icon(
-                              Icons.update,
+                            icon: const AnimatedIconWidget(
+                              icon: Icons.update,
                               size: 33,
                               color: Colors.orange,
                             ),
@@ -160,8 +161,8 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                                 }
                               },
                             ),
-                            icon: const Icon(
-                              Icons.fitness_center,
+                            icon: const AnimatedIconWidget(
+                              icon: Icons.fitness_center,
                               size: 33,
                               color: Colors.orange,
                             ),
