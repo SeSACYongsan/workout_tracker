@@ -15,12 +15,15 @@ class WorkoutGuidePage extends StatefulWidget {
   State<WorkoutGuidePage> createState() => _WorkoutGuidePageState();
 }
 
-class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
+class _WorkoutGuidePageState extends State<WorkoutGuidePage>
+    with SingleTickerProviderStateMixin {
+  late Animation<Color?> animation;
+  late AnimationController animationController;
   late Workout currentWorkout;
   late List<Workout> workouts;
   final audioPlayer = AudioPlayer();
   int workoutsIndex = 0;
-
+  bool isPlaying = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,36 +94,40 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
   @override
   void dispose() {
     audioPlayer.dispose();
+    animationController.dispose();
     super.dispose();
   }
 
-  IconButton getIconButton() {
-    if (audioPlayer.state == PlayerState.playing) {
-      return IconButton(
-        onPressed: () async {
-          await audioPlayer.stop();
-          setState(() {});
-        },
-        icon: const Icon(
-          Icons.stop_circle,
-          size: 50,
-          color: Colors.red,
-        ),
-      );
+  Widget getIconButton() {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) {
+        return IconButton(
+          onPressed: handleIconPressed,
+          icon: Icon(
+            isPlaying ? Icons.stop_circle : Icons.play_circle_fill,
+            size: 70,
+            color: animation.value,
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> handleIconPressed() async {
+    if (isPlaying) {
+      await audioPlayer.stop();
+      setState(() {
+        isPlaying = false;
+        animationController.reverse();
+      });
     } else {
-      return IconButton(
-        onPressed: () async {
-          await audioPlayer.setPlaybackRate(3);
-          await audioPlayer
-              .play(AssetSource("audio/${currentWorkout.audioName}"));
-          setState(() {});
-        },
-        icon: const Icon(
-          Icons.play_circle_fill,
-          size: 50,
-          color: Colors.red,
-        ),
-      );
+      await audioPlayer.setPlaybackRate(3);
+      await audioPlayer.play(AssetSource("audio/${currentWorkout.audioName}"));
+      setState(() {
+        isPlaying = true;
+        animationController.forward();
+      });
     }
   }
 
@@ -132,6 +139,12 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
     audioPlayer.onPlayerComplete.listen((event) {
       setState(() {});
     });
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    animation = ColorTween(begin: Colors.amber, end: Colors.red)
+        .animate(animationController);
     WorkoutManager.increaseTodayWorkoutMinutes(currentWorkout.minutes);
     WorkoutManager.increaseTodayWorkoutCalories(currentWorkout.kcal);
     super.initState();
@@ -144,6 +157,10 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
       workoutsIndex = 0;
     }
     currentWorkout = workouts[workoutsIndex];
+    if (isPlaying) {
+      isPlaying = false;
+      animationController.reverse();
+    }
   }
 
   void prevWorkout() {
@@ -153,5 +170,9 @@ class _WorkoutGuidePageState extends State<WorkoutGuidePage> {
       workoutsIndex = workouts.length - 1;
     }
     currentWorkout = workouts[workoutsIndex];
+    if (isPlaying) {
+      isPlaying = false;
+      animationController.reverse();
+    }
   }
 }
