@@ -187,64 +187,70 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 250,
-                      child: DashboardCard(
-                        customOnTap: () {
-                          context.go("/workout_home/workout_list/0");
-                        },
-                        imageName: "sample1.png",
-                        backgroundColor: Colors.orange,
-                        info: Text(
-                          WorkoutManager.workoutGroups[0].groupDescription,
-                          style: const TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
+                    Hero(
+                      tag: "group_0",
+                      child: SizedBox(
+                        width: 250,
+                        child: DashboardCard(
+                          customOnTap: () {
+                            context.go("/workout_home/workout_list/0");
+                          },
+                          imageName: "sample1.png",
+                          backgroundColor: Colors.orange,
+                          info: Text(
+                            WorkoutManager.workoutGroups[0].groupDescription,
+                            style: const TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          icon: const Icon(
+                            Icons.run_circle_outlined,
+                            size: 33,
                             color: Colors.white,
                           ),
-                        ),
-                        icon: const Icon(
-                          Icons.run_circle_outlined,
-                          size: 33,
-                          color: Colors.white,
-                        ),
-                        title: const Text(
-                          "그룹1",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          title: const Text(
+                            "그룹1",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 250,
-                      child: DashboardCard(
-                        customOnTap: () {
-                          context.go("/workout_home/workout_list/1");
-                        },
-                        imageName: "sample2.png",
-                        backgroundColor: Colors.teal,
-                        info: Text(
-                          WorkoutManager.workoutGroups[1].groupDescription,
-                          style: const TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
+                    Hero(
+                      tag: "group_1",
+                      child: SizedBox(
+                        width: 250,
+                        child: DashboardCard(
+                          customOnTap: () {
+                            context.go("/workout_home/workout_list/1");
+                          },
+                          imageName: "sample2.png",
+                          backgroundColor: Colors.teal,
+                          info: Text(
+                            WorkoutManager.workoutGroups[1].groupDescription,
+                            style: const TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          icon: const Icon(
+                            Icons.rowing_outlined,
+                            size: 33,
                             color: Colors.white,
                           ),
-                        ),
-                        icon: const Icon(
-                          Icons.rowing_outlined,
-                          size: 33,
-                          color: Colors.white,
-                        ),
-                        title: const Text(
-                          "그룹2",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          title: const Text(
+                            "그룹2",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
