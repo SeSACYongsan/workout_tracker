@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:workout_tracker/auth_bridge.dart';
 import 'package:workout_tracker/pages/frame_page.dart';
 import 'package:workout_tracker/pages/landing_page.dart';
 import 'package:workout_tracker/pages/login_page.dart';
 import 'package:workout_tracker/pages/settings_page.dart';
 import 'package:workout_tracker/pages/workout_guide_page.dart';
-import 'package:workout_tracker/pages/workout_home_page.dart';
 import 'package:workout_tracker/pages/workout_list_page.dart';
 
 final router = GoRouter(
@@ -26,7 +26,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: "/workout_home",
-              builder: (context, state) => const WorkoutHomePage(),
+              builder: (context, state) => const AuthBridge(),
               routes: [
                 GoRoute(
                   path: "workout_list/:group_index",

@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master.swiftconstvalues",
+    "dependencies" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master.d",
+    "diagnostics" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master.dia",
+    "emit-module-dependencies" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master-emit-module.dia",
+    "swift-dependencies" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/desktop_webview_auth-master.swiftdeps"
+  },
+  "/Users/jinwookkim/.pub-cache/hosted/pub.dev/desktop_webview_auth-0.0.15/ios/Classes/SwiftDesktopWebviewAuthPlugin.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/SwiftDesktopWebviewAuthPlugin.o",
+    "llvm-bc" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/SwiftDesktopWebviewAuthPlugin.bc",
+    "object" : "/Users/jinwookkim/StudioProjects/workout_tracker/ios/build/Pods.build/Release-iphoneos/desktop_webview_auth.build/Objects-normal/arm64/SwiftDesktopWebviewAuthPlugin.o"
+  }
+}

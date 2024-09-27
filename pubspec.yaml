@@ -37,6 +37,8 @@ dependencies:
     go_router:
     shared_preferences:
     firebase_core:
+    firebase_auth:
+    firebase_ui_auth:
 dev_dependencies:
     flutter_test:
         sdk: flutter
