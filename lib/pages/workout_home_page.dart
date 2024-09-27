@@ -28,17 +28,22 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
                   const Expanded(
                     child: AnimatedTextCarousel(),
                   ),
-                  Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 3,
-                        color: Colors.orange,
-                      ),
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/me.jpg"),
+                  InkWell(
+                    onTap: () {
+                      context.go("/workout_home/profile");
+                    },
+                    child: Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 3,
+                          color: Colors.orange,
+                        ),
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                          image: AssetImage("assets/images/me.jpg"),
+                        ),
                       ),
                     ),
                   ),

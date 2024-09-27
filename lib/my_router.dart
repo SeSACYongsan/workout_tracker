@@ -4,6 +4,7 @@ import 'package:workout_tracker/auth_bridge.dart';
 import 'package:workout_tracker/pages/frame_page.dart';
 import 'package:workout_tracker/pages/landing_page.dart';
 import 'package:workout_tracker/pages/login_page.dart';
+import 'package:workout_tracker/pages/profile_page.dart';
 import 'package:workout_tracker/pages/settings_page.dart';
 import 'package:workout_tracker/pages/workout_guide_page.dart';
 import 'package:workout_tracker/pages/workout_list_page.dart';
@@ -28,6 +29,12 @@ final router = GoRouter(
               path: "/workout_home",
               builder: (context, state) => const AuthBridge(),
               routes: [
+                GoRoute(
+                  path: "profile",
+                  builder: (context, state) {
+                    return const ProfilePage();
+                  },
+                ),
                 GoRoute(
                   path: "workout_list/:group_index",
                   builder: (context, state) {
